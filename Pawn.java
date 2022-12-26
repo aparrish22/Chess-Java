@@ -1,10 +1,10 @@
 // TODO might use this?-> import java.awt.Color;
-// TODO need to review this
+// TODO need to complete before creating any other piece
 
 public class Pawn extends Piece  {
 
     protected final int POINTS = 1;
-    private String name;
+    private String name; // TODO can use "dictionary, kv" to have two names
     private String startPos;
     private String currentPos; // grid chess notation, board.square.getname
 

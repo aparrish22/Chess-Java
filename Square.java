@@ -36,7 +36,8 @@ public class Square {
         this.name = name;
     }
 
-    // fix, prob dont need this
+    // fix, prob dont need this 
+    // can call this when piece leaves current square and moves to new square
     public void setOnSquare(boolean onSquare) {
         this.onSquare = onSquare;
     }

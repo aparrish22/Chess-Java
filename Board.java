@@ -38,13 +38,6 @@ public class Board {
             }
         }
     }
-    
-    // could use this in other classes also
-    // TODO This is already created above "getSquare()"
-    // try using this in another class. Honestly, might not even need this.
-    // public String findSquare() {
-    //     return "null";
-    // }
 
     private String colorSquare(int file, int rank) {
     

@@ -9,6 +9,7 @@ public class Chess {
         // test board grid coords
         printSquareInfo(board);
 
+        // TODO draw GUI
         ChessFrame chessFrame = new ChessFrame();
 
         
@@ -34,7 +35,4 @@ public class Chess {
     }
 
 }
-
-    // TODO board creation in separate java file, place in same folder,
-    // then import it into main java file.
 
