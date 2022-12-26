@@ -22,8 +22,9 @@ public class ChessFrame<K,V> extends JFrame implements WindowListener, ActionLis
         
         addWindowListener(this);
 
-
         setPreferredSize(new Dimension(600, 600));
+
+
 
         // buttons
         newGameButton = new JButton(new AbstractAction("new game") {
@@ -50,6 +51,8 @@ public class ChessFrame<K,V> extends JFrame implements WindowListener, ActionLis
         add(newGameButton);
         add(loadButton);
         add(saveButton);
+
+        add(new JLabel(new ImageIcon("resources/images/chess-26774_1280.png")));
 
         pack();
 
