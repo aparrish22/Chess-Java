@@ -1,12 +1,14 @@
 import java.util.ArrayList;
+import javax.swing.JPanel;
+import java.awt.*;
 
-public class Board {
+public class Board extends JPanel {
     
     private Square[][] grid = new Square[8][8];
     private ArrayList<String> coordinates = new ArrayList<String>();
 
     public Board() {
-        this.newBoard();
+        this.newBoard();       
     }
 
     public Square getSquare(String name) {
@@ -25,6 +27,10 @@ public class Board {
 
     public Square getSquare(int file, int rank) {
         return grid[file][rank];
+    }
+
+    public String getSquareName(int file, int rank) {
+        return grid[file][rank].getName();
     }
 
     private void newBoard() {

@@ -21,8 +21,8 @@ public abstract class Piece {
     }
     
     abstract String capture(String pos);
-    abstract String move(String pos);
-    abstract boolean isLegalMove();
+    abstract String move(String pos); 
+    abstract boolean isLegalMove(String startPos, String destPos);
     abstract String recordMove(String move);
     abstract boolean promotable(); // promote
 

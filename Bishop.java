@@ -1,16 +1,9 @@
+public class Bishop extends Piece {
 
-public class Pawn extends Piece  {
-
-    protected final int POINTS = 1;
+    protected final int POINTS = 3;
     private String name; 
     private String startPos;
     private String currentPos;
-
-    public Pawn() {
-        name = "Pawn";
-        shortName = ""; // none for chess notation
-        color = "null";
-    }
 
     @Override
     String capture(String pos) {
@@ -41,6 +34,7 @@ public class Pawn extends Piece  {
         // TODO Auto-generated method stub
         return null;
     }
+    
 
 
 }

@@ -10,23 +10,17 @@ public class Rook extends Piece {
         shortName = "R";
     }
 
-
-    
     @Override
     String capture(String pos) {
         // TODO Auto-generated method stub
         return null;
     }
 
-
-
     @Override
-    boolean isCaptured() {
+    boolean isLegalMove(String startPos, String destPos) {
         // TODO Auto-generated method stub
-        return super.isCaptured();
+        return false;
     }
-
-
 
     @Override
     String move(String pos) {
@@ -34,15 +28,11 @@ public class Rook extends Piece {
         return null;
     }
 
-
-
     @Override
     boolean promotable() {
         // TODO Auto-generated method stub
         return false;
     }
-
-
 
     @Override
     String recordMove(String move) {
@@ -50,11 +40,6 @@ public class Rook extends Piece {
         return null;
     }
 
-
-
-    @Override
-    public String toString() {
-        return "This is a rook: " + this.getClass() + "\n";
-    }
+    
     
 }

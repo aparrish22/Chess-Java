@@ -1,14 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Map;
+import java.util.HashMap;
 
-public class ChessFrame extends JFrame implements WindowListener, ActionListener {
+public class ChessFrame<K,V> extends JFrame implements WindowListener, ActionListener {
 
     JButton newGameButton, loadButton, saveButton, exitButton;
+    Board board;
+    Map<String,JLabel> map = new HashMap<>();
 
-    public ChessFrame() {
 
+    public ChessFrame() {   
+       
         super();
+        
+        board = new Board();
         setSize(400, 400);
         setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,6 +57,8 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
         loadButton.addActionListener(this);
         saveButton.addActionListener(this);
 
+        setLocationRelativeTo(null);
+
         setVisible(true);
 
     }
@@ -59,6 +68,7 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
     }
 
     private void drawBoard() {
+
 
         // Create the JPanel
         JPanel panel = new JPanel();
@@ -81,11 +91,13 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
                 square.setOpaque(true);
                 square.setBackground(color);
 
+                // combine square name with square jpanels
+                map.put(board.getSquareName(col, row), square);
+
                 // Add the square to the panel
                 panel.add(square);
             }
 
-            
         }
         
         add(panel);

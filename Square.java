@@ -1,9 +1,18 @@
-public class Square {
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Square extends JPanel {
     
     private String color;
     private String name;
     private boolean onSquare;
     private int file, rank;
+
+    public Square(int size, Color color) {
+        setPreferredSize(new Dimension(size, size));
+        setBackground(color);
+    }
 
     public Square(int x, int y) {
         file = x;
@@ -13,8 +22,6 @@ public class Square {
     public boolean hasPiece() {
         return (onSquare)? true : false;
     }
-
-    
 
     public String getColor() {
         return color;
