@@ -1,9 +1,11 @@
+import java.io.IOException;
+
 // import java.time.Year;
 // import java.time.YearMonth;
 
 public class Chess {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Board board = new Board();
 
         // test board grid coords

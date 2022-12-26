@@ -1,21 +1,25 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.*;
+import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
 
-public class ChessFrame<K,V> extends JFrame implements WindowListener, ActionListener {
+public class ChessFrame extends JFrame implements WindowListener, ActionListener {
 
     JButton newGameButton, loadButton, saveButton, exitButton;
     Board board;
     Map<String,JLabel> map = new HashMap<>();
 
 
-    public ChessFrame() {   
+    public ChessFrame() throws IOException {   
        
         super();
         
         board = new Board();
+        
         setSize(400, 400);
         setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,13 +28,27 @@ public class ChessFrame<K,V> extends JFrame implements WindowListener, ActionLis
 
         setPreferredSize(new Dimension(600, 600));
 
-
+        JFrame frame = this;
 
         // buttons
         newGameButton = new JButton(new AbstractAction("new game") {
+            
+            boolean newGameInstance = false;
+
             @Override
             public void actionPerformed( ActionEvent e ) {
-                drawBoard();
+                
+                if (!newGameInstance) {
+                    drawBoard();
+                    newGameInstance = true;
+                    try {
+                        insertImages(frame);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                    newGameButton.setVisible(false);
+                }
+                
             }
         });
 
@@ -52,7 +70,6 @@ public class ChessFrame<K,V> extends JFrame implements WindowListener, ActionLis
         add(loadButton);
         add(saveButton);
 
-        add(new JLabel(new ImageIcon("resources/images/chess-26774_1280.png")));
 
         pack();
 
@@ -63,6 +80,25 @@ public class ChessFrame<K,V> extends JFrame implements WindowListener, ActionLis
         setLocationRelativeTo(null);
 
         setVisible(true);
+
+    }
+
+    public void insertImages(JFrame frame) throws IOException {
+       
+        File path = new File("resources/images");
+
+        File[] allFiles = path.listFiles();
+        ImageIcon[] icons = new ImageIcon[allFiles.length];
+        JLabel[] labels = new JLabel[allFiles.length];
+
+        for (int i = 0; i < allFiles.length; i++) {
+            // load images into image icons
+            icons[i] = new ImageIcon(allFiles[i].getAbsolutePath());
+            // insert icons of jlabel into label array
+            labels[i] = new JLabel(icons[i]);
+            // add labels to ChessFrame
+            frame.add(labels[i]);
+        }
 
     }
 
