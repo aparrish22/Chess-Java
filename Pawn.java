@@ -1,10 +1,6 @@
 import java.io.File;
 import java.awt.Color;
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
 import java.io.*;
 
 public class Pawn extends Piece  {
@@ -14,6 +10,8 @@ public class Pawn extends Piece  {
     private String startPos;
     private String currentPos;
     private String side;
+
+    private ImageIcon icon;
 
     // image
     File whitePath = new File("resources/images/W-Pawn.png");
@@ -26,9 +24,16 @@ public class Pawn extends Piece  {
         this.side = side;
     }
 
-    public void drawPiece(JFrame frame) {
-
+    @Override
+    void drawPiece(JFrame frame) throws IOException {
+        // grab white or black pawn
+        if (this.color == Color.WHITE)
+            icon = new ImageIcon(whitePath.getAbsolutePath());
+        else if (this.color == Color.BLACK) 
+            icon = new ImageIcon(blackPath.getAbsolutePath());
         
+        JLabel label = new JLabel(icon);
+        frame.add(label);
 
     }
 
@@ -67,6 +72,5 @@ public class Pawn extends Piece  {
         // TODO Auto-generated method stub
         return null;
     }
-
 
 }

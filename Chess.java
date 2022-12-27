@@ -11,7 +11,6 @@ public class Chess {
         // test board grid coords
         printSquareInfo(board);
 
-        // TODO draw GUI
         ChessFrame chessFrame = new ChessFrame();
 
         

@@ -1,25 +1,24 @@
-import java.io.File;
 import java.awt.Color;
 import javax.swing.*;
 import java.io.*;
 
-public class Rook extends Piece {
+public class Queen extends Piece {
 
-    protected final int POINTS = 5;
-    private String name;
+    protected final int POINTS = 9;
+    private String name; 
     private String startPos;
     private String currentPos;
     private String side;
 
     private ImageIcon icon;
 
-    File whitePath = new File("resources/images/W-Rook.png");
-    File blackPath = new File("resources/images/B-Rook.png");
+    // image
+    File whitePath = new File("resources/images/W-Queen.png");
+    File blackPath = new File("resources/images/B-Queen.png");
 
-
-    public Rook(Color color, String side) {
-        name = "Rook";
-        this.shortName = "R";
+    public Queen(Color color, String side) {
+        name = "Pawn";
+        this.shortName = "";
         this.color = color;
         this.side = side;
     }
@@ -50,19 +49,13 @@ public class Rook extends Piece {
     }
 
     @Override
-    boolean isLegalMove(String startPos, String destPos) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
     String move(String pos) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    boolean promotable() {
+    boolean isLegalMove(String startPos, String destPos) {
         // TODO Auto-generated method stub
         return false;
     }
@@ -73,6 +66,10 @@ public class Rook extends Piece {
         return null;
     }
 
-    
+    @Override
+    boolean promotable() {
+        // TODO Auto-generated method stub
+        return false;
+    }
     
 }

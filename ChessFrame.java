@@ -41,11 +41,11 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
                 if (!newGameInstance) {
                     drawBoard();
                     newGameInstance = true;
-                    // try {
-                    //     // insertImages(frame);
-                    // } catch (IOException e1) {
-                    //     e1.printStackTrace();
-                    // }
+                    try {
+                        insertImages(frame);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     newGameButton.setVisible(false);
                 }
                 
@@ -83,28 +83,66 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
 
     }
 
-    public void insertImages(JFrame frame) throws IOException {
-       
-        File path = new File("resources/images");
+    private void insertImages(JFrame frame) throws IOException {
 
-        File[] allFiles = path.listFiles();
-        ImageIcon[] icons = new ImageIcon[allFiles.length];
-        JLabel[] labels = new JLabel[allFiles.length];
+        // 8 pieces
+        Pawn[] blackPawns = new Pawn[8];
+        Pawn[] whitePawns = new Pawn[8];
+        
+        // 2 pieces
+        Rook[] blackRooks = new Rook[2];
+        Rook[] whiteRooks = new Rook[2];
+        Knight[] blackKnights = new Knight[2];
+        Knight[] whiteKnights = new Knight[2];
+        Bishop[] blackBishops = new Bishop[2];
+        Bishop[] whiteBishops = new Bishop[2];
 
-        for (int i = 0; i < allFiles.length; i++) {
-            // load images into image icons
-            icons[i] = new ImageIcon(allFiles[i].getAbsolutePath());
-            // insert icons of jlabel into label array
-            labels[i] = new JLabel(icons[i]);
-            // add labels to ChessFrame
-            frame.add(labels[i]);
+        Queen blackQueen = new Queen(Color.BLACK, "black");
+        Queen whiteQueen = new Queen(Color.WHITE, "white");
+        King blackKing = new King(Color.BLACK, "black");
+        King whiteKing = new King(Color.WHITE, "white");
+        
+
+        // creating 8 pawns for each player
+        for (int i = 0; i < 8; i++) {
+            blackPawns[i] = new Pawn(Color.BLACK, "black");
+            whitePawns[i] = new Pawn(Color.WHITE, "white");
+
+            blackPawns[i].drawPiece(frame);
+            whitePawns[i].drawPiece(frame);
         }
 
+        // creating 2 pieces for each side
+        for (int i = 0; i < 2; i++) {
+            blackRooks[i] = new Rook(Color.BLACK, "black");
+            whiteRooks[i] = new Rook(Color.WHITE, "white");
+
+            blackKnights[i] = new Knight(Color.BLACK, "black");
+            whiteKnights[i] = new Knight(Color.WHITE, "white");
+
+            blackBishops[i] = new Bishop(Color.BLACK, "black");
+            whiteBishops[i] = new Bishop(Color.WHITE, "white");
+
+            blackRooks[i].drawPiece(frame);
+            whiteRooks[i].drawPiece(frame);
+            blackKnights[i].drawPiece(frame);
+            whiteKnights[i].drawPiece(frame);
+            blackBishops[i].drawPiece(frame);
+            whiteBishops[i].drawPiece(frame);
+
+        }
+
+        blackQueen.drawPiece(frame);
+        whiteQueen.drawPiece(frame);
+        blackKing.drawPiece(frame);
+        whiteKing.drawPiece(frame);
+
+
+
+
     }
 
-    public void actionPerformed(ActionEvent e) {
-
-    }
+    public void actionPerformed(ActionEvent e) {}
 
     private void drawBoard() {
 
@@ -155,6 +193,7 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
     public void windowDeiconified(WindowEvent e) {}
     public void windowDeactivated(WindowEvent e) {}
     public void windowClosed(WindowEvent e) {}
+
 
 
 }

@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.io.IOException;
+
 import javax.swing.JFrame;
 
 public abstract class Piece {
@@ -23,7 +25,7 @@ public abstract class Piece {
         isCaptured = b;
     }
     
-    abstract void drawPiece(JFrame frame);
+    abstract void drawPiece(JFrame frame) throws IOException;
     abstract String setCurrentPos(String pos);
     abstract String capture(String pos);
     abstract String move(String pos); 
