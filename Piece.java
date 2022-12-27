@@ -1,7 +1,10 @@
+import java.awt.Color;
+import javax.swing.JFrame;
+
 public abstract class Piece {
     
     protected boolean isCaptured = false;
-    protected String color;
+    protected Color color;
     protected String shortName;
 
     boolean isCaptured() {
@@ -12,7 +15,7 @@ public abstract class Piece {
         shortName = s;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -20,6 +23,8 @@ public abstract class Piece {
         isCaptured = b;
     }
     
+    abstract void drawPiece(JFrame frame);
+    abstract String setCurrentPos(String pos);
     abstract String capture(String pos);
     abstract String move(String pos); 
     abstract boolean isLegalMove(String startPos, String destPos);

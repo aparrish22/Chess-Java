@@ -1,3 +1,11 @@
+import java.io.File;
+import java.awt.Color;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import java.io.*;
 
 public class Pawn extends Piece  {
 
@@ -5,11 +13,29 @@ public class Pawn extends Piece  {
     private String name; 
     private String startPos;
     private String currentPos;
+    private String side;
 
-    public Pawn() {
+    // image
+    File whitePath = new File("resources/images/W-Pawn.png");
+    File blackPath = new File("resources/images/B-Pawn.png");
+
+    public Pawn(Color color, String side) {
         name = "Pawn";
-        shortName = ""; // none for chess notation
-        color = "null";
+        this.shortName = "";
+        this.color = color;
+        this.side = side;
+    }
+
+    public void drawPiece(JFrame frame) {
+
+        
+
+    }
+
+    @Override
+    String setCurrentPos(String pos) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     @Override

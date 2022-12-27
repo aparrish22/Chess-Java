@@ -41,11 +41,11 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
                 if (!newGameInstance) {
                     drawBoard();
                     newGameInstance = true;
-                    try {
-                        insertImages(frame);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
+                    // try {
+                    //     // insertImages(frame);
+                    // } catch (IOException e1) {
+                    //     e1.printStackTrace();
+                    // }
                     newGameButton.setVisible(false);
                 }
                 
