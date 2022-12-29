@@ -7,9 +7,14 @@ import java.io.*;
 import java.util.Map;
 import java.util.HashMap;
 
+// TODO: Place chess pieces onto board and starting positions
+    // Grab square names
+// Settings
+// Implement JMenuBar later
+
 public class ChessFrame extends JFrame implements WindowListener, ActionListener {
 
-    JButton newGameButton, loadButton, saveButton, exitButton;
+    JButton newGameButton, loadButton, saveButton, exitButton, settingsButton;
     Board board;
     Map<String,JLabel> map = new HashMap<>();
 
@@ -21,7 +26,9 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
         board = new Board();
         
         setSize(400, 400);
-        setLayout(new FlowLayout());
+        
+        FlowLayout chessLayout = new FlowLayout();
+        setLayout(chessLayout);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         addWindowListener(this);
@@ -30,7 +37,7 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
 
         JFrame frame = this;
 
-        // buttons
+        // button functionality
         newGameButton = new JButton(new AbstractAction("new game") {
             
             boolean newGameInstance = false;
@@ -66,9 +73,19 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
             }
         });
 
+        // open Settings window (same window, different page,
+            // and allow user to change settings
+        settingsButton = new JButton(new AbstractAction("settings") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // code here
+            }
+        });
+
         add(newGameButton);
         add(loadButton);
         add(saveButton);
+        add(settingsButton);
 
 
         pack();
@@ -137,8 +154,7 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
         blackKing.drawPiece(frame);
         whiteKing.drawPiece(frame);
 
-
-
+        pack();
 
     }
 
@@ -177,7 +193,10 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
 
         }
         
+        setLayout(new BorderLayout());
+
         add(panel);
+        pack();
         setVisible(true);
 
     }
