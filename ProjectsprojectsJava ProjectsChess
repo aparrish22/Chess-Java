@@ -1,0 +1,20 @@
+[1mdiff --git a/Chess.class b/Chess.class[m
+[1mindex 543361f..9b5b495 100644[m
+Binary files a/Chess.class and b/Chess.class differ
+[1mdiff --git a/ChessFrame.class b/ChessFrame.class[m
+[1mindex e6bca53..041bc90 100644[m
+Binary files a/ChessFrame.class and b/ChessFrame.class differ
+[1mdiff --git a/ChessFrame.java b/ChessFrame.java[m
+[1mindex 7b7717f..a7f82ad 100644[m
+[1m--- a/ChessFrame.java[m
+[1m+++ b/ChessFrame.java[m
+[36m@@ -185,7 +185,8 @@[m [mpublic class ChessFrame extends JFrame implements WindowListener, ActionListener[m
+                 square.setBackground(color);[m
+ [m
+                 // combine square name with square jpanels[m
+[31m-                map.put(board.getSquareName(col, row), square);[m
+[32m+[m[32m                Square sq = board.getSquare(col, row);[m
+[32m+[m[32m                map.put(sq.getName(), square);[m
+ [m
+                 // Add the square to the panel[m
+                 panel.add(square);[m

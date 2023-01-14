@@ -185,7 +185,9 @@ public class ChessFrame extends JFrame implements WindowListener, ActionListener
                 square.setBackground(color);
 
                 // combine square name with square jpanels
-                map.put(board.getSquareName(col, row), square);
+                Square sq = board.getSquare(col, row);
+                map.put(sq.getName(), square);
+                // String test = board.getSquareName(col, row);
 
                 // Add the square to the panel
                 panel.add(square);
